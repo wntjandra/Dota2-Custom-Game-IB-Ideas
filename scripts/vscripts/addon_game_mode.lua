@@ -32,7 +32,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_2, 1 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_2, 1 )
 
-	self.m_TeamName[DOTA_TEAM_GOODGUYS] = "Peepaw"
+	
 
 	CreateUnitByName("npc_dota_creature_gnoll_assassin", Vector(0, 1300, 0), true, il, nil, DOTA_TEAM_BADGUYS)
 
