@@ -20,9 +20,22 @@ function Activate()
 	GameRules.AddonTemplate:InitGameMode()
 end
 
+--  Edit for start up in gamemode - MainActivity start() function
 function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+	print("PEepaw is loaded!")
+
+	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 1 )
+	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 1 )
+	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_1, 1 )
+	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_2, 1 )
+	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_2, 1 )
+
+	self.m_TeamName[DOTA_TEAM_GOODGUYS] = "Peepaw"
+
+	CreateUnitByName("npc_dota_creature_gnoll_assassin", Vector(0, 1300, 0), true, il, nil, DOTA_TEAM_BADGUYS)
+
 end
 
 -- Evaluate the state of the game
