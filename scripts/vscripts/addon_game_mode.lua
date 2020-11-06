@@ -4,6 +4,10 @@ if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
 
+
+
+
+
 function Precache( context )
 	--[[
 		Precache things we know we'll use.  Possible file types include (but not limited to):
@@ -13,6 +17,8 @@ function Precache( context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
 end
+
+
 
 -- Create the game mode when we activate
 function Activate()
@@ -25,13 +31,32 @@ function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	print("PEepaw is loaded!")
-
+	
+	--Teams
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 1 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 1 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_1, 1 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_2, 1 )
-	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_2, 1 )
+	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_3, 1 )
+		--DEBUG skip starting game mode stages
+	--GameRules:EnableCustomGameSetupAutoLaunch(true)
+	--GameRules:SetCustomGameSetupAutoLaunchDelay(0)
+	GameRules:SetStrategyTime(20)
+	--GameRules:SetHeroSelectionTime(0) --force hero will be used
+	GameRule:SetPreGameTime(0)
+	GameRule:SetShowcaseTime(0)
+	GameRule:SetPostGameTime(0)
+	
+	--Annoying crap	
+	local GameMode = GameRules:GetGameModeEntity()
+	GameMode:SetAnnouncerDisabled(true)
+	GameMode:SetKillingSpreeAnnouncerDisabled(true)
+	GameMode:SetDayNightCycleDisabled(true)
+	GameMode:DisableHudFlip(true)
+	GameMode:SetDeathOverLayDisabled(true)
+	GameMode:SetWeatherEffectsDisabled(true)
 
+	
 	
 
 	CreateUnitByName("npc_dota_creature_gnoll_assassin", Vector(0, 1300, 0), true, il, nil, DOTA_TEAM_BADGUYS)

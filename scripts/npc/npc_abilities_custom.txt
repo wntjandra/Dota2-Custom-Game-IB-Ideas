@@ -61,10 +61,10 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityTextureName"			"templar_assassin_refraction"
+		"AbilityTextureName"			"meepo_poof"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUME_ENEMIES"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_DragonKnight.DragonTail.Target"
@@ -75,7 +75,7 @@
 		"LevelsBetweenUpgrades"			"2"
 
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate"			"1"
+		"AnimationPlaybackRate"			"3"
 		"AnimationIgnoreModelScale"		"1"
 			
 		// Damage
@@ -102,7 +102,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"1.5 2 2.5 3"
+				"pull_duration"				"1.5 2 2.5 3"
 			}
 
 
