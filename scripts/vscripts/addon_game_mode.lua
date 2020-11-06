@@ -31,6 +31,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	print("PEepaw is loaded!")
+	local GameMode = GameRules:GetGameModeEntity()
 	
 	--Teams
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 1 )
@@ -43,12 +44,11 @@ function CAddonTemplateGameMode:InitGameMode()
 	--GameRules:SetCustomGameSetupAutoLaunchDelay(0)
 	GameRules:SetStrategyTime(20)
 	--GameRules:SetHeroSelectionTime(0) --force hero will be used
-	GameRule:SetPreGameTime(0)
-	GameRule:SetShowcaseTime(0)
-	GameRule:SetPostGameTime(0)
+	GameRules:SetPreGameTime(0)
+	GameRules:SetShowcaseTime(0)
+	GameRules:SetPostGameTime(0)
 	
 	--Annoying crap	
-	local GameMode = GameRules:GetGameModeEntity()
 	GameMode:SetAnnouncerDisabled(true)
 	GameMode:SetKillingSpreeAnnouncerDisabled(true)
 	GameMode:SetDayNightCycleDisabled(true)
@@ -56,10 +56,8 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameMode:SetDeathOverLayDisabled(true)
 	GameMode:SetWeatherEffectsDisabled(true)
 
-	
-	
 
-	CreateUnitByName("npc_dota_creature_gnoll_assassin", Vector(0, 1300, 0), true, il, nil, DOTA_TEAM_BADGUYS)
+	CreateUnitByName("npc_dota_creature_gnoll_assassin", Vector(0, 1300, 0), true, nil, nil, DOTA_TEAM_BADGUYS)
 
 end
 

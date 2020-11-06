@@ -5,7 +5,8 @@ function custom_qiyaa:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local caster = self:GetCaster()
 	local pullDuration = self:GetSpecialValueFor("pull_duration")
-
+	caster:EmitSound("ib.PeePawAbility1")
+	
 	if target ~= nil then
 		local damageTable = {
 			victim = target,
